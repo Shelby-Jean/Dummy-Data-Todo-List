@@ -25,9 +25,15 @@ const logTodos = () => {
 
 const populateTodos = () => {
   let todoList = document.getElementById("todo-list"); //capture the ol item into a variable
+
   for(i = 0; i < arrayofTodos.length; i++) {
     let todoItem = document.createElement("li"); //createElement to make a new "li"
     let todoTitle = document.createTextNode(arrayofTodos[i].title); //createText inside the li using the title property
+    if (arrayofTodos[i].completed) {
+      todoItem.style.color = "green";
+    } else {
+      todoItem.style.color = "red";
+    }
     todoItem.appendChild(todoTitle); //append the text to the new element
     todoList.appendChild(todoItem); //append the element to the ol element
   }
